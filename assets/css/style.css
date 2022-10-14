@@ -19,6 +19,15 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+} */
+
+.header{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .main{
     display: flex;
     width: 100vw;
@@ -78,6 +87,14 @@
     
 }
 
+.clock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 144px;
+    color: var(--font-home-secundary);
+}
+
 .container-main{
     background-color: var(--color-bg-main);
     display: flex;
@@ -117,6 +134,7 @@
     background: var(--color-bg);
     width: 1920px;
     height: 100px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .text-footer{
