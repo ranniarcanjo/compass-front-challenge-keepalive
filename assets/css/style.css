@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 :root {
     --color-main:linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+    --color-bg: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+    --color-bg-main: linear-gradient(105.96deg, #FFFFFF 0%, #F0F0F0 97.86%);
     --color-font: #E0E0E0;
     --color-button:linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     --font-home-primary:#C12D18;
@@ -14,7 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .main{
@@ -38,13 +40,11 @@
     
 }
 .title-form{
-    
     min-width:450px;
     margin-bottom: 120px;
 }
 
 .form-login{
-    
     min-width:450px;
 }
 
@@ -72,8 +72,78 @@
 
 .wallpaper{
     width: 50%;
-    background: url(../img/notebook.svg);
+    background: url(../img/bg-login.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     
 }
+
+.container-main{
+    background-color: var(--color-bg-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-compass{
+    background-position: bottom left;
+}
+
+.text-main{
+    display: flex;
+    flex-direction: column;  
+    text-align: right;
+    margin-right: 134px;  
+}
+
+.text-main-primary {
+    font-weight: bold;
+    color: var(--font-home-primary);
+    font-size: 64px;
+}
+
+.text-main-primary:first-child {
+	font-size: 24px;
+}
+
+.text-main-secundary{
+    color: var(--font-home-secundary);
+    font-size: 24px;
+}
+
+.container-footer{
+    display: flex;
+    justify-content: space-around;
+    background: var(--color-bg);
+    width: 1920px;
+    height: 100px;
+}
+
+.text-footer{
+    color: var(--color-white);
+    text-align: right;
+    margin-left: 50px;
+    font-size: 14px;
+    margin-top: 33px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+.button-link{
+    width: 131px;
+    height: 99px;
+    background-color: var(--color-white);
+    text-align:center;  
+}
+
+.text-button{
+    text-decoration: none;
+    color: var(--font-button);
+    
+}
+
+.button-logout{
+    text-decoration: none;
+    color: var(--color-white);
+}
+
