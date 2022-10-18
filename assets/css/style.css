@@ -10,6 +10,7 @@
     --font-home-secundary:#222222;
     --font-button:#C13216;
     --color-white:#FFFFFF;
+    --color-yellow-msg: #E9B425;
 }
 
 *{
@@ -89,6 +90,16 @@
     background: transparent;
     color: #E0E0E0;
     font-size: 16px;
+}
+
+.field-error{
+    border-color: var(--color-yellow-msg);;
+}
+
+.msg-erro{
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-yellow-msg);
 }
 
 .icon{
@@ -242,4 +253,5 @@
     text-decoration: none;
     color: var(--color-white);
 }
+
 
