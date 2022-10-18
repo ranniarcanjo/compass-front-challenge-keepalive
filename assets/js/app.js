@@ -14,7 +14,8 @@ let validPass = false;
 
 let userObj = {};
 
-const setLogin = (userObj) => JSON.parse(localStorage.setItem('userLogin', JSON.stringify(userObj)))
+const getLogin = () => JSON.parse(localStorage.getItem('userLogin')) ?? {};
+const setLogin = (userObj) => localStorage.setItem('userLogin', JSON.stringify(userObj));
 
 formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -48,10 +49,6 @@ inputPass.addEventListener('blur', () => {
     }
 });
 
-// btnLogoff.addEventListener('click', () => {
-//     alert('Fazer logof');
-// })
-
 function validaForm(){
     let valid = true;
     if (validUser && validPass){
@@ -75,10 +72,13 @@ function logar() {
         }
 
         setLogin(userObj);
+        console.log("Logando redirecionar");
         window.location.href = "home.html";
         msgError.innerHTML = "";
 
     }else{
+        inputUser.classList.add("field-error");
+        inputPass.classList.add("field-error");
         msgError.innerHTML = "Ops, usuário ou senha inválidos. \n Tente novamente!"; 
     }
 

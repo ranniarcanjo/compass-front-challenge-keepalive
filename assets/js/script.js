@@ -8,6 +8,8 @@ const btnLogout = document.querySelector("#link-logout");
 const timeSeconds = document.querySelector(".time");
 const btnYesHome = document.querySelector("#btn-yes-home");
 const btnYesLogout = document.querySelector("#btn-yes-logout");
+const btnNo = document.querySelector(".btn-no");
+
 
 const getLogin = () => JSON.parse(localStorage.getItem('userLogin')) ?? {};
 
@@ -38,7 +40,10 @@ btnYesHome.addEventListener('click', () =>{
 
 btnYesLogout.addEventListener('click', () =>{
     localStorage.removeItem('userLogin');
+    window.location.href = "/";
 })
+
+
 
 
 
