@@ -30,8 +30,7 @@ function searchDate(){
     if(strDay.length == 1) mes = '0' + day;
     if(strMonth.length == 1) mes = '0' + month;
 
-    switch(week) {
-        case 0:
+    switch(week) { case 0:
             week = "Domingo"
             break;
         case 1:
@@ -96,6 +95,10 @@ function searchDate(){
     let Week = week + ', ' + day + ' de ' + month + ' de ' + year;
     weekHtml.textContent = Week;
 }
+
+
+
+
 
 searchDate()
 

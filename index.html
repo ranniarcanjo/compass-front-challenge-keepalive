@@ -5,37 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Keep a live</title>
 </head>
 
 <body>
     <main class="main">
         <section class="container-login">
-            <div class="title-form">
+            
+            <div class="login-text">
                 <h1>Olá,</h1>
                 <p>Para continuar navegando de forma segura, efetue o login na rede.</p>
             </div>
+
             <div class="form-login">
                 <h2>Login</h2>
-                <form>
-                    <label>
-                        <input class="input" type="text" name="username" placeholder="Usuário"><br>
-                    </label>
-                    <label>
-                        <input class="input" type="password" name="password" placeholder="Senha"><br>
-                    </label>
-                    <button class="btn" type="submit">Continuar</button>
+                <form id="form-login">
+                    <div class="input">
+                        <label for="username"></label>
+                        <input class="field" type="text" name="username" id="username" autocomplete="false" placeholder="Usuário">
+                        <i class="icon icon-user">
+                            <img src="./assets/img/vector-usuario.png" alt="">
+                        </i>
+                    </div>
+
+                    <div class="input">
+                        <label for="password"></label>
+                        <input class="field" type="password" name="password" id="password" placeholder="Senha">
+                        <i class="icon icon-pass">
+                            <img src="./assets/img/vector-password.png" alt="">
+                        </i>
+                    </div>
+
+                    <div class="input">
+                        <button class="btn btn-login" type="submit">Continuar</button>
+                    </div>
                 </form>
             </div>
 
         </section>
         <section class="wallpaper">
-            <img src="./assets/img/logo-compasso-white.svg">
+            <div class="logo">
+                <a href="#">
+                    <img src="./assets/img/logo-compasso-white.svg">
+                </a>
+            </div>
         </section>
-
     </main>
+
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>
