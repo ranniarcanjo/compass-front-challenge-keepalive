@@ -1,5 +1,46 @@
+// const openModalButton = document.querySelector("#open-modal");
+const closeModalButton = document.querySelector("#close-modal");
+const modal = document.querySelector("#modal");
+const modalTitle = document.querySelector("#modal-title")
+const modalBody = document.querySelector("#modal-body");
+const fade = document.querySelector("#fade");
+const btnLogout = document.querySelector("#link-logout");
+const timeSeconds = document.querySelector(".time");
+const btnYesHome = document.querySelector("#btn-yes-home");
+const btnYesLogout = document.querySelector("#btn-yes-logout");
+
+const getLogin = () => JSON.parse(localStorage.getItem('userLogin')) ?? {};
+
+var userLogin = localStorage.getItem('userLogin');
+
 let h = document.querySelector('.watch');
 let hour = new Date();
+
+let weekHtml = document.querySelector('.date');
+let day = document.querySelector('.date-day');
+let month = document.querySelector('.date-month');
+let year = document.querySelector('.date-year');
+let fullDate = new Date();
+
+let city = document.querySelector('.city')
+let temperature = document.querySelector('.climate')
+
+//Link logout
+btnLogout.addEventListener('click', () => {
+    btnYesHome.classList.toggle("diplay-none");
+    countRefresh(30);
+    toggleModal("Fazer Logout", "Deseja realmente fazer logout?");
+})
+
+btnYesHome.addEventListener('click', () =>{
+    countRefresh(); 
+})
+
+btnYesLogout.addEventListener('click', () =>{
+    localStorage.removeItem('userLogin');
+})
+
+
 
 function updateWatch(){
     let currentTime = new Date();
@@ -13,12 +54,6 @@ function updateWatch(){
     h.textContent = hourExtense;
     setTimeout("updateWatch()",1000);
 }
-
-let weekHtml = document.querySelector('.date');
-let day = document.querySelector('.date-day');
-let month = document.querySelector('.date-month');
-let year = document.querySelector('.date-year');
-let fullDate = new Date();
 
 function searchDate(){
     let week = fullDate.getDay();
@@ -96,10 +131,61 @@ function searchDate(){
     weekHtml.textContent = Week;
 }
 
+function getUserPosition() {
+    let url = ''
+    navigator.geolocation.getCurrentPosition((pos) => {
+      let lat = pos.coords.latitude
+      let long = pos.coords.longitude
+      url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&APPID=622296cd4fda08b69c46ccfa980f968d`
+      fetchApi(url)
+    })
+  }
+  
+function fetchApi(url) {
+    fetch(url)
+    .then((data) => {
+        return data.json()
+    })
+    .then((data) => {
+        let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
+        city.textContent      = data.name + " - PI"
+        temperature.innerHTML = tempInCelsius
+    })
+}
 
 
+const toggleModal = (title, msg) => {
+
+    modalTitle.innerHTML = title;
+    modalBody.innerHTML = msg;
+
+    [modal, fade].forEach((el) =>el.classList.toggle("hide"));
+};
+
+[closeModalButton, fade].forEach((el) => {
+    el.addEventListener("click", () => toggleModal());
+});
 
 
+let time = 30;
+ 
+function countRefresh(temp) {
+    if ((time - 1) >= -1) {
+        time = time;
+        horaImprimivel = time;
+        timeSeconds.textContent = horaImprimivel;
+        setTimeout('countRefresh()', 1000);
+        time--;
+    } 
+    else {
+        btnYesLogout.classList.toggle("diplay-none");
+        toggleModal("Aviso", "Seu tempo acabou, deseja continuar na página home?");   
+    }
+
+}
+
+countRefresh();  
+getUserPosition();
 searchDate()
 
 

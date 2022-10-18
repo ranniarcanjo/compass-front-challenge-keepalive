@@ -4,17 +4,16 @@ const inputPass = document.querySelector("#password");
 const iconUser = document.querySelector("#icon-user");
 const iconPass = document.querySelector("#icon-pass");
 const msgError = document.querySelector(".msg-erro");
-//const btnLogoff = document.querySelector("#btn-logoff");
 
 const user = "admin@compasso.com.br";
 const pass = "admin";
+
 
 let validUser = false;
 let validPass = false;
 
 let userObj = {};
 
-const getLogin = () => JSON.parse(localStorage.getItem('userLogin')) ?? {};
 const setLogin = (userObj) => JSON.parse(localStorage.setItem('userLogin', JSON.stringify(userObj)))
 
 formLogin.addEventListener('submit', (e) => {

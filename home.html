@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
     <title>Home</title>
 </head>
 <body onload="updateWatch()">
-    
+    <div class="page-container">
         <header class="header">
             <div class="logo-home">
                 <img src="./assets/img/logoCompasso-black.svg">
             </div>
             <div class="watch-date">
                 <span class="watch"></span>
-                <!-- <span class="clock-minute"></span> -->
                 <span class="date"></span>
-                <!-- <span class="date-day">Ranni</span>
-                <span class="date-month"></span>
-                <span class="date-year"></span> -->
             </div>
 
-            <div class="temp">TEMP</div>
+            <div class="temp">
+                <p class="city"></p>
+                <span class="climate"></span><weight>°</weight>
+            </div>
         </header>
-        <main>
-            <section class="container-main">
-                <img class="logo-compass" src="./assets/img/ball-logoCompasso.svg">
+        <main class="container-main">
+            <section class="">
+                <!-- <img class="logo-compass" src="./assets/img/ball-logoCompasso.svg"> -->
                 <div class="text-main">
                     <h2 class="text-main-primary">Our mission is</h2>
                     <p class="text-main-secundary">Nossa missão é</p><br>
@@ -43,19 +43,46 @@
         <footer>
             <section class="container-footer">
                 <div class="text-footer">
-                    <p>Essa janela do navegador é usado para manter sua sessão de autenticação ativa. Deixa-o<br> aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
+                    <p class="text-alert-footer">Essa janela do navegador é usado para manter sua sessão de autenticação ativa. Deixa-o<br> aberta em segundo plano e abra uma nova janela para continuar a navegar.</p>
                 </div>
-                <div>
-                    Refresh
+                <div class="count-refresh">
+                    <div class="refresh-text">Aplication <br> refresh in</div>
+                    <div class="refresh-temp">
+                        <h3 class="time">600</h3>
+                        <p class="text-seconds">seconds</p>
+                    </div>
                 </div>
-                <div class="button-link">
-                    <a class="text-button" href="www.uol.com.br">Continuar Navegando</a>
-                </div>
-                <div class="button-logout">
-                    <a href="./index.html">Logout</a>
+                <div class="actions-footer">
+                    <div class="button-link">
+                        <a class="text-button" href="https://www.uol.com.br">Continuar Navegando</a>
+                    </div>
+                    <div class="button-logout">
+                        <button id="link-logout" class="btn-logout">Logout</a>
+                    </div>
                 </div>
             </section>
         </footer>
+
+        <!-- Modal -->        
+        <div id="fade" class="hide"></div>
+        <div id="modal" class="hide modal-content">
+          
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title"></h2>
+            </div>
+            <div class="modal-body" id="modal-body">
+                   
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-modal btn-yes" id="btn-yes-logout">Sim, quero fazer logout!</button>
+                <button class="btn-modal btn-yes" id="btn-yes-home">Sim, continuar!</button>
+                <button class="btn-modal btn-no" id="close-modal">Não</button>
+            </div>
+        </div>
+
+
+    </div>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
